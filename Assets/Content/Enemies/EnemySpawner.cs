@@ -5,47 +5,56 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public EnemySpawnerSettings selectedSettings;
-
+    public EnemyWave[] waves;
+    public int startingWave;
+    
+    private EnemyWave currentWave;
+    private int currentWaveIndex;
     private float lastWaveTime;
     private int totalWeights;
 
-    public void SetSettings(EnemySpawnerSettings newSettings)
+    private void Awake()
     {
-        selectedSettings = newSettings;
-        totalWeights = 0;
-        
-        // get the total weight of all enemies
-        for (int i = 0; i < selectedSettings.entries.Length; i++)
-        {
-            totalWeights += selectedSettings.entries[i].weight;
-        }
+        SetSettings(startingWave);
     }
 
     public void Update()
     {
-        EnemySpawnerSettings settings = selectedSettings;
-        
-        // don't go any further if no fallback
-        if (settings == null)
+        // don't go any further if no waves
+        if (waves.Length <= currentWaveIndex)
         {
-            Debug.LogError($"EnemySpawner \"{transform.name}\" has no settings!!");
+            Debug.LogWarning($"EnemySpawner \"{transform.name}\" has no wave {currentWaveIndex}");
             return;
         }
         
         // check for time delay
-        if (lastWaveTime + settings.spawnWaveDelaySeconds < Time.time)
+        if (lastWaveTime + currentWave.spawnWaveDelaySeconds < Time.time)
         {
             // spawn an amount of enemies, each one at random based on the weights
-            for (int i = 0; i < settings.spawnWaveAmount; i++)
+            for (int i = 0; i < currentWave.spawnWaveAmount; i++)
             {
                 GameObject enemyToSpawn = GetRandomEnemy();
-                // TODO: add spawn radius
+                // TODO: add spawnpoints
                 Instantiate(enemyToSpawn);
             }
             
             // set time
             lastWaveTime = Time.time;
+            currentWaveIndex++;
+            SetSettings(currentWaveIndex);
+        }
+    }
+    
+    public void SetSettings(int index)
+    {
+        currentWaveIndex = index;
+        currentWave = waves[index];
+        totalWeights = 0;
+        
+        // get the total weight of all enemies
+        for (int i = 0; i < currentWave.entries.Length; i++)
+        {
+            totalWeights += currentWave.entries[i].weight;
         }
     }
 
@@ -56,10 +65,10 @@ public class EnemySpawner : MonoBehaviour
         int weightAccumulated = 0;
         GameObject enemy = null;
 
-        for (int i = 0; i < selectedSettings.entries.Length; i++)
+        for (int i = 0; i < currentWave.entries.Length; i++)
         {
             // if accumulated weight ends up higher than rnd, select and break
-            EnemySpawnerSettingsEntry iSetting = selectedSettings.entries[i];
+            EnemyWaveEntry iSetting = currentWave.entries[i];
             weightAccumulated += iSetting.weight;
 
             if (weightAccumulated <= rnd)
