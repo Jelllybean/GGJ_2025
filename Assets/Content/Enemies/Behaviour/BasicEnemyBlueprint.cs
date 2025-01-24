@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "BehaviourBlueprint/BasicEnemy", order = -10000)]
 public class BasicEnemyBlueprint : BehaviourBlueprint
 {
     public override INode BuildTree()
