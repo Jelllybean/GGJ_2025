@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Enemy : Agent
 {
-    [HideInInspector]
-    public List<GameObject> smallBubbles = new List<GameObject>();
-
+    [Header("Bubble mechanics")]
     [SerializeField] private GameObject bigBubble;
+    [HideInInspector] public List<GameObject> smallBubbles = new List<GameObject>();
+
     private int bubbleCount = 0;
     void Start()
     {

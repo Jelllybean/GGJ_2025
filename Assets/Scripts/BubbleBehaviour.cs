@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class BubbleBehaviour : MonoBehaviour
 {
-
-
 	Rigidbody rb;
 
 	public Vector3 gravity;
@@ -20,7 +18,7 @@ public class BubbleBehaviour : MonoBehaviour
 		if (other.CompareTag("Enemy"))
 		{
 			rb.constraints = RigidbodyConstraints.FreezePosition;
-			other.GetComponent<EnemyBubbleCounter>().AttachBubble(gameObject);
+			other.GetComponent<Enemy>().AttachBubble(gameObject);
 			transform.SetParent(other.transform);
 			//transform.localPosition = Vector3.zero;
 			//other.transform.SetParent(this.transform);
