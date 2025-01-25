@@ -5,7 +5,6 @@ public enum PositionReadMode {VECTOR3, GAME_OBJECT}
 
 public class NMoveTowards : ANode
 {
-    
     private readonly string destinationBlackboardName;
     private readonly PositionReadMode moveMode;
     private NavMeshAgent navAgent;

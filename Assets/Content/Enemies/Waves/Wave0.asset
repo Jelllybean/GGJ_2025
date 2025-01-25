@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave0
   m_EditorClassIdentifier: 
   entries:
-  - prefab: {fileID: 3359167561684497078, guid: 66387ebea9a32563299ec686a6d2af14, type: 3}
+  - prefab: {fileID: 3359167561684497078, guid: 4f8350f6980d09aad804852a88afca90, type: 3}
     weight: 100
   spawnWaveDelaySeconds: 2
   spawnWaveAmount: 7

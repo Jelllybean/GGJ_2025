@@ -45,7 +45,7 @@ public class Agent : MonoBehaviour
         return blackboard.Get<string>("common_current_node");
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (active && lastTickTime + (1 / ticksPerSecond) < Time.time)
         {
