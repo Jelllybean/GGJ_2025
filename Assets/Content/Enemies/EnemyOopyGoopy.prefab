@@ -312,13 +312,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 0.87838507
+      value: 0.97953415
+      inSlope: 2.8470643
+      outSlope: 2.8470643
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.070587575
+      inSlope: -7.350684
+      outSlope: -7.350684
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09661479
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -326,8 +335,11 @@ MonoBehaviour:
   bigBubble: {fileID: 1638538341535411014}
   bubblesUntilBigBubble: 4
   minimumSpeedMult: 0
-  maximumSpeedMult: 500
+  maximumSpeedMult: 10
+  animator: {fileID: 5491184032276471816}
   smallBubbles: []
+  destroyEnemy: {fileID: 0}
+  enemyType: 0
 --- !u!195 &9137069057434762871
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -336,12 +348,12 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3359167561684497078}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 2
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 1000000
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 50
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -390,7 +402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3983244159253474978
 RectTransform:
   m_ObjectHideFlags: 0
