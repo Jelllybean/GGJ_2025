@@ -24,9 +24,14 @@ public class Enemy : Agent
     private float lastStepTime = Mathf.NegativeInfinity;
     private float speedMultiplier = 1;
 
-    private void Start()
+    public DestroyEnemy destroyEnemy;
+	public EnemyType enemyType;
+
+	private void Start()
     {
         speedMultiplier = maximumSpeedMult;
+
+        destroyEnemy = DestroyEnemy.destroyedEnemies[enemyType];
     }
 
     protected override void Update()
@@ -63,7 +68,8 @@ public class Enemy : Agent
     {
         if (isInBubble)
         {
-            Destroy(gameObject);
+			destroyEnemy.ExplodeEnemy(transform);
+			Destroy(gameObject);
         }
     }
 

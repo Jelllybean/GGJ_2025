@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BubbleShooting : MonoBehaviour
 {
@@ -13,6 +14,13 @@ public class BubbleShooting : MonoBehaviour
 
 
 	private int bubblesIndex = 0;
+
+	[Header("Reloading")]
+	public int currentAmmoCount = 6;
+	public bool canShoot = true;
+	public TextMeshProUGUI ammoCounter;
+	public string infinitySymbol;
+
 	void Start()
 	{
 		camera = Camera.main;
@@ -32,7 +40,7 @@ public class BubbleShooting : MonoBehaviour
 			Debug.DrawRay(camera.transform.position, camera.transform.forward * 10000f, Color.yellow);
 		}
 
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && canShoot)
 		{
 			bubbles[bubblesIndex].gameObject.SetActive(true);
 			bubbles[bubblesIndex].transform.SetParent(null);
@@ -46,11 +54,24 @@ public class BubbleShooting : MonoBehaviour
 			{
 				bubblesIndex++;
 			}
+			currentAmmoCount--;
+			ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
+			if (currentAmmoCount <= 0)
+			{
+				canShoot = false;
+				Invoke("CantShoot", 1.5f);
+			}
 			//_rb.AddForce(100 * transform.up);
 		}
 
 
 	}
 
+	public void CantShoot()
+	{
+		canShoot = true;
+		currentAmmoCount = 6;
+		ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
+	}
 
 }
