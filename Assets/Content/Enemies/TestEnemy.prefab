@@ -185,6 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d08fd543f0ca82168a1e721c83c60dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
+  behaviour: {fileID: 11400000, guid: d7fda3135798044a0859bb063bb7f826, type: 2}
+  ticksPerSecond: 20
+  logCurrentNode: 0
   smallBubbles: []
 --- !u!33 &227466324129990510
 MeshFilter:
@@ -337,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 4744033979001172227}
-  agent: {fileID: 0}
+  agent: {fileID: 5778672767261116925}
 --- !u!223 &4236735473491347314
 Canvas:
   m_ObjectHideFlags: 0
