@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingForce: 4000
-  bubblePrefab: {fileID: 0}
+  bubblePrefab: {fileID: 3448796430905370541, guid: 7e460581b74b86f4c80ffb3a6a6cc284, type: 3}
   rightHandPosition: {fileID: 0}
   bubbles: []
   currentAmmoCount: 6
@@ -90,7 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f2e52e2e3ffa84186d5ab17107ffef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingForce: 1500
+  minShootForce: 1
+  maxShootForce: 30
+  maxChargeTime: 0.7
+  fovIncrease: -20
   dartPrefab: {fileID: 0}
   leftHandPosition: {fileID: 0}
   darts: []
