@@ -17,6 +17,9 @@ public class Enemy : Agent
     [FormerlySerializedAs("minimumSpeed")] [SerializeField] private float minimumSpeedMult;
     [FormerlySerializedAs("maximumSpeed")] [SerializeField] private float maximumSpeedMult;
 
+    [Header("Visuals")] 
+    [SerializeField] private Animator animator;
+
     [HideInInspector] public List<GameObject> smallBubbles = new List<GameObject>();
 
     private int bubbleCount = 0;
@@ -37,11 +40,13 @@ public class Enemy : Agent
     protected override void Update()
     {
         base.Update();
+        
+        animator.SetBool("IsOnOffMeshLink", navAgent.isOnOffMeshLink);
 
         if (navAgent.isOnOffMeshLink)
         {
-            navAgent.acceleration = 1;
-            navAgent.speed = 8;
+            navAgent.acceleration = 0.01f;
+            navAgent.speed = 6;
         }
         else
         {

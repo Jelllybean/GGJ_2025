@@ -336,6 +336,7 @@ MonoBehaviour:
   bubblesUntilBigBubble: 4
   minimumSpeedMult: 0
   maximumSpeedMult: 10
+  animator: {fileID: 5491184032276471816}
   smallBubbles: []
   destroyEnemy: {fileID: 0}
   enemyType: 0
