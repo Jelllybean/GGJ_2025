@@ -23,7 +23,7 @@ public class BubbleShooting : MonoBehaviour
 	public string infinitySymbol;
 
 	[Header("Audio")]
-	public List<AudioSource> bubblePops;
+	public List<AudioSource> wooshEffects;
 	private int previousIndex;
 
 	void Start()
@@ -56,7 +56,7 @@ public class BubbleShooting : MonoBehaviour
 			currentAmmoCount--;
 			int _index = SoundIndex();
 			Debug.Log(_index);
-			bubblePops[_index].Play();
+			wooshEffects[_index].Play();
 			ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 			if (currentAmmoCount <= 0)
 			{
@@ -78,7 +78,7 @@ public class BubbleShooting : MonoBehaviour
 
 	private int SoundIndex()
 	{
-		int _index = Random.Range(0, bubblePops.Count - 1);
+		int _index = Random.Range(0, wooshEffects.Count - 1);
 		if(_index != previousIndex)
 		{
 			previousIndex = _index;
@@ -86,7 +86,7 @@ public class BubbleShooting : MonoBehaviour
 		}
 		else
 		{
-			return previousIndex%bubblePops.Count;
+			return previousIndex%wooshEffects.Count;
 		}
 	}
 
