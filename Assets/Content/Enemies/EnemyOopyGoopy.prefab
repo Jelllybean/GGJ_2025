@@ -294,14 +294,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  behaviour: {fileID: 11400000, guid: d7fda3135798044a0859bb063bb7f826, type: 2}
+  behaviour: {fileID: 11400000, guid: 05a0834be7e17ba77a315e76ed942a7a, type: 2}
   ticksPerSecond: 20
   logCurrentNode: 0
   navAgent: {fileID: 9137069057434762871}
+  stepDecaySeconds: 0.4
+  stepSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   bigBubble: {fileID: 1638538341535411014}
   bubblesUntilBigBubble: 4
-  minimumSpeed: 0
-  maximumSpeed: 5
+  minimumSpeedMult: 0
+  maximumSpeedMult: 500
   smallBubbles: []
 --- !u!195 &9137069057434762871
 NavMeshAgent:
@@ -529,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 79c2889ab16a7514abf051ba74ce978b, type: 3}
       propertyPath: m_Name
-      value: walking_slime
+      value: model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1da7447d05f9dfa1c830bfaf7f9fbea7, type: 3}
-  m_Name: Wave0
+  m_Script: {fileID: 11500000, guid: b324ba9558f7c05449d4b7487f0bb3d5, type: 3}
+  m_Name: EnemyOopyGoopy
   m_EditorClassIdentifier: 
-  entries:
-  - prefab: {fileID: 3359167561684497078, guid: 4f8350f6980d09aad804852a88afca90, type: 3}
-    weight: 100
-  spawnWaveDelaySeconds: 2
-  spawnWaveAmount: 3
+  blackboardValues: []
+  stepTime: 0.5
