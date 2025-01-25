@@ -2,24 +2,40 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class Enemy : Agent
 {
     [Header("Navigation")]
     [SerializeField] private NavMeshAgent navAgent;
+    [SerializeField] private float stepDecaySeconds;
+    [SerializeField] private AnimationCurve stepSpeedCurve;
     
     [Header("Bubble mechanics")]
     [SerializeField] private GameObject bigBubble;
     [SerializeField] private int bubblesUntilBigBubble;
-    [SerializeField] private float minimumSpeed, maximumSpeed;
-    
+    [FormerlySerializedAs("minimumSpeed")] [SerializeField] private float minimumSpeedMult;
+    [FormerlySerializedAs("maximumSpeed")] [SerializeField] private float maximumSpeedMult;
+
     [HideInInspector] public List<GameObject> smallBubbles = new List<GameObject>();
 
     private int bubbleCount = 0;
+    private float lastStepTime = Mathf.NegativeInfinity;
+    private float speedMultiplier = 1;
 
     private void Start()
     {
-        navAgent.speed = maximumSpeed;
+        navAgent.speed = maximumSpeedMult;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        // only move forwards when making a step
+        float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
+        navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+
     }
 
     public void AttachBubble(GameObject _smallBubble)
@@ -38,8 +54,13 @@ public class Enemy : Agent
         }
         
         // reduce speed with each bubble
-        navAgent.speed = Mathf.Lerp(maximumSpeed, minimumSpeed,
+        speedMultiplier = Mathf.Lerp(maximumSpeedMult, minimumSpeedMult,
             ((float)bubbleCount / (float)bubblesUntilBigBubble));
+    }
+
+    public void MovementStep()
+    {
+        lastStepTime = Time.time;
     }
 
     //public IEnumerator BigBubbleCountDown()
