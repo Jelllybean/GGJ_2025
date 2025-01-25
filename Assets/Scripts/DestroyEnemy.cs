@@ -1,11 +1,22 @@
 using UnityEngine;
 using RayFire;
+using System.Collections.Generic;
 
+public enum EnemyType { Goop }
 public class DestroyEnemy : MonoBehaviour
 {
 	public RayfireRigid rayfireRigid;
 	public RayfireBomb bomb;
 
+	public EnemyType enemyType;
+
+	public static Dictionary<EnemyType, DestroyEnemy> destroyedEnemies = new Dictionary<EnemyType, DestroyEnemy>();
+
+	private void Awake()
+	{
+		destroyedEnemies.Add(enemyType, this);
+		Debug.Log(destroyedEnemies[enemyType]);
+	}
 	void Start()
 	{
 		rayfireRigid.DemolishForced();
