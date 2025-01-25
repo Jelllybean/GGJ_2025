@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Audio;
 
 public class BubbleShooting : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class BubbleShooting : MonoBehaviour
 	public TextMeshProUGUI ammoCounter;
 	public string infinitySymbol;
 
+	[Header("Audio")]
+	public List<AudioSource> bubblePops;
+	private int previousIndex;
+
 	void Start()
 	{
 		camera = Camera.main;
@@ -34,12 +39,6 @@ public class BubbleShooting : MonoBehaviour
 
 	void Update()
 	{
-		RaycastHit hit;
-		if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 10000f))
-		{
-			Debug.DrawRay(camera.transform.position, camera.transform.forward * 10000f, Color.yellow);
-		}
-
 		if (Input.GetMouseButtonDown(0) && canShoot)
 		{
 			bubbles[bubblesIndex].gameObject.SetActive(true);
@@ -55,6 +54,9 @@ public class BubbleShooting : MonoBehaviour
 				bubblesIndex++;
 			}
 			currentAmmoCount--;
+			int _index = SoundIndex();
+			Debug.Log(_index);
+			bubblePops[_index].Play();
 			ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 			if (currentAmmoCount <= 0)
 			{
@@ -72,6 +74,20 @@ public class BubbleShooting : MonoBehaviour
 		canShoot = true;
 		currentAmmoCount = 6;
 		ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
+	}
+
+	private int SoundIndex()
+	{
+		int _index = Random.Range(0, bubblePops.Count - 1);
+		if(_index != previousIndex)
+		{
+			previousIndex = _index;
+			return _index;
+		}
+		else
+		{
+			return previousIndex%bubblePops.Count;
+		}
 	}
 
 }
