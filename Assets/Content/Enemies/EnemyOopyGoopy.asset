@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyOopyGoopy
   m_EditorClassIdentifier: 
   blackboardValues: []
-  stepTime: 0.5
+  stepTime: 0.6
