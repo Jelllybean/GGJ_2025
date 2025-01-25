@@ -26,7 +26,7 @@ public class Enemy : Agent
     {
         bubbleCount++;
         smallBubbles.Add(_smallBubble);
-        if(bubbleCount >= bubblesUntilBigBubble)
+        if(bubbleCount > bubblesUntilBigBubble)
         {
             bigBubble.SetActive(true);
             for (int i = 0; i < smallBubbles.Count; i++)
