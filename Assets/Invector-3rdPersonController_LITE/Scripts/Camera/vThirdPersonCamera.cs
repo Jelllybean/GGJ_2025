@@ -82,6 +82,8 @@ public class vThirdPersonCamera : MonoBehaviour
 
         distance = defaultDistance;
         currentHeight = height;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void FixedUpdate()
