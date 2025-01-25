@@ -34,7 +34,7 @@ public class Blackboard
         else
         {
             object obj = objects[key];
-            if (obj.GetType() == typeof(T))
+            if (obj.GetType() == typeof(T) || typeof(T).IsAssignableFrom(obj.GetType()))
             {
                 value = (T)objects[key];
                 return true;
@@ -58,7 +58,7 @@ public class Blackboard
         else
         {
             object obj = objects[key];
-            if (obj.GetType() == typeof(T))
+            if (obj.GetType() == typeof(T) || typeof(T).IsAssignableFrom(obj.GetType()))
             {
                 return (T)objects[key];
             }
