@@ -26,7 +26,7 @@ public class Enemy : Agent
 
     private void Start()
     {
-        navAgent.speed = maximumSpeedMult;
+        speedMultiplier = maximumSpeedMult;
     }
 
     protected override void Update()

@@ -312,13 +312,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 0.87838507
+      value: 0.97953415
+      inSlope: 2.8470643
+      outSlope: 2.8470643
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.070587575
+      inSlope: -7.350684
+      outSlope: -7.350684
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09661479
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -326,7 +335,7 @@ MonoBehaviour:
   bigBubble: {fileID: 1638538341535411014}
   bubblesUntilBigBubble: 4
   minimumSpeedMult: 0
-  maximumSpeedMult: 500
+  maximumSpeedMult: 10
   smallBubbles: []
 --- !u!195 &9137069057434762871
 NavMeshAgent:
@@ -339,7 +348,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 1000000
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
