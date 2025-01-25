@@ -55,7 +55,6 @@ public class BubbleShooting : MonoBehaviour
 			}
 			currentAmmoCount--;
 			int _index = SoundIndex();
-			Debug.Log(_index);
 			wooshEffects[_index].Play();
 			ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 			if (currentAmmoCount <= 0)
@@ -63,10 +62,7 @@ public class BubbleShooting : MonoBehaviour
 				canShoot = false;
 				Invoke("CantShoot", 1.5f);
 			}
-			//_rb.AddForce(100 * transform.up);
 		}
-
-
 	}
 
 	public void CantShoot()

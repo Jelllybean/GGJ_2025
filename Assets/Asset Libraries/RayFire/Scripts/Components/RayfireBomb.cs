@@ -145,8 +145,10 @@ namespace RayFire
         public void Explode (float delayLoc)
         {
             if (delayLoc == 0)
-                Explode();
-            else if (delayLoc > 0)
+            {
+				Explode();
+			}
+			else if (delayLoc > 0)
                 StartCoroutine (ExplodeCor());
         }
 

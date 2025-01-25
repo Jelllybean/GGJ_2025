@@ -374,6 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 311804707600754427}
+  - component: {fileID: 7952365948770565445}
   - component: {fileID: 1846526169949335052}
   - component: {fileID: 3929035735664420026}
   - component: {fileID: 6791762150936314107}
@@ -400,6 +401,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 143878660626385050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7952365948770565445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598971728005208051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc50bb2e1058388ba2bf667eb0d7f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overlapSphereMask:
+    serializedVersion: 2
+    m_Bits: 128
+  overlapSphereRadius: 0.1
 --- !u!33 &1846526169949335052
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -470,7 +487,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
