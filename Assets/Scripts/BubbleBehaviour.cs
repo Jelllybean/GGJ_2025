@@ -20,7 +20,7 @@ public class BubbleBehaviour : MonoBehaviour
 			rb.constraints = RigidbodyConstraints.FreezePosition;
 			other.GetComponent<Enemy>().AttachBubble(gameObject);
 			transform.SetParent(other.transform);
-			BubblePopAudio.instance.PlayBubbleAudio();
+			BubblePopAudio.instance?.PlayBubbleAudio();
 		}
 		else if(other.CompareTag("Dart"))
 		{

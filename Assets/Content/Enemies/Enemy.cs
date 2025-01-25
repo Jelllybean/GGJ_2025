@@ -82,7 +82,7 @@ public class Enemy : Agent
     {
         if (isInBubble)
         {
-			destroyEnemy.ExplodeEnemy(transform);
+			destroyEnemy?.ExplodeEnemy(transform);
 			Destroy(gameObject);
         }
     }
