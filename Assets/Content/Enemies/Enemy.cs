@@ -38,9 +38,18 @@ public class Enemy : Agent
     {
         base.Update();
 
-        // only move forwards when making a step
-        float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
-        navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+        if (navAgent.isOnOffMeshLink)
+        {
+            navAgent.acceleration = 1;
+            navAgent.speed = 8;
+        }
+        else
+        {
+            // only move forwards when making a step
+            navAgent.acceleration = 100000;
+            float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
+            navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+        }
     }
 
     public void AttachBubble(GameObject _smallBubble)
