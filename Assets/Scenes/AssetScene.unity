@@ -550,6 +550,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1686468594204124281, guid: 8fccd18f39dc19844aeba84a5cf0559d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 98b8bb09471350c47a13a1059fabef8c, type: 2}
     - target: {fileID: 919132149155446097, guid: 8fccd18f39dc19844aeba84a5cf0559d, type: 3}
       propertyPath: m_Name
       value: room
@@ -558,6 +562,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8521902485874960664, guid: 8fccd18f39dc19844aeba84a5cf0559d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e1db9d291cae3047bc92de8b44d50e4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -619,6 +627,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 973dacea0ce989b49b70728b873d5b64, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cf66b42bc483c8498a4cb7db01aa4b4, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 973dacea0ce989b49b70728b873d5b64, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e1db9d291cae3047bc92de8b44d50e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 973dacea0ce989b49b70728b873d5b64, type: 3}
       propertyPath: m_Name
       value: raam
@@ -1618,7 +1634,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b911ffd48c1d52a439dda27c9006b113, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b911ffd48c1d52a439dda27c9006b113, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 884d2ff577d462641b2a7fb641550eda, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b911ffd48c1d52a439dda27c9006b113, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 884d2ff577d462641b2a7fb641550eda, type: 2}
     - target: {fileID: 919132149155446097, guid: b911ffd48c1d52a439dda27c9006b113, type: 3}
@@ -2568,6 +2592,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: bc44015a708e5634db323aa0e1db36fd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cf66b42bc483c8498a4cb7db01aa4b4, type: 2}
     - target: {fileID: 919132149155446097, guid: bc44015a708e5634db323aa0e1db36fd, type: 3}
       propertyPath: m_Name
       value: bed
@@ -2885,7 +2913,7 @@ PrefabInstance:
     - target: {fileID: 4388107365891511810, guid: ac93434ebfa5004408a960736261794c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d2998efa9dde5394089a7fce890f5583, type: 2}
+      objectReference: {fileID: 2100000, guid: eb6acd3bb8d4ada49852f1cdbaef33b0, type: 2}
     - target: {fileID: 5196690464252040948, guid: ac93434ebfa5004408a960736261794c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4643
