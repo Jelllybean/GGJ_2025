@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : Agent
 {
+    [Header("Navigation")]
     [SerializeField] private NavMeshAgent navAgent;
     
     [Header("Bubble mechanics")]

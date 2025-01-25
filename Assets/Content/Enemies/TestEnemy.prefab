@@ -298,7 +298,11 @@ MonoBehaviour:
   behaviour: {fileID: 11400000, guid: d7fda3135798044a0859bb063bb7f826, type: 2}
   ticksPerSecond: 20
   logCurrentNode: 0
+  navAgent: {fileID: 9137069057434762871}
   bigBubble: {fileID: 1638538341535411014}
+  bubblesUntilBigBubble: 0
+  minimumSpeed: 0
+  maximumSpeed: 0
   smallBubbles: []
 --- !u!33 &227466324129990510
 MeshFilter:
