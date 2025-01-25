@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Agent
 {
     [HideInInspector]
     public List<GameObject> smallBubbles = new List<GameObject>();

@@ -145,11 +145,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6506529865854268043}
-  - component: {fileID: 4701642173690716598}
   - component: {fileID: 5778672767261116925}
   - component: {fileID: 227466324129990510}
   - component: {fileID: 1555684097386167396}
   - component: {fileID: 8394066133874972154}
+  - component: {fileID: 9137069057434762871}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -173,22 +173,6 @@ Transform:
   - {fileID: 3983244159253474978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4701642173690716598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3359167561684497078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7833fa7709780325f8bb5e09564200e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  behaviour: {fileID: 11400000, guid: d7fda3135798044a0859bb063bb7f826, type: 2}
-  ticksPerSecond: 20
-  logCurrentNode: 0
 --- !u!114 &5778672767261116925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d08fd543f0ca82168a1e721c83c60dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smallBubbles: []
 --- !u!33 &227466324129990510
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -277,6 +262,28 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &9137069057434762871
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3359167561684497078}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8090370097418750157
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 4744033979001172227}
-  agent: {fileID: 4701642173690716598}
+  agent: {fileID: 0}
 --- !u!223 &4236735473491347314
 Canvas:
   m_ObjectHideFlags: 0
