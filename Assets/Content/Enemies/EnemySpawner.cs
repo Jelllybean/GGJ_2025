@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
         // don't go any further if no waves
         if (waves.Length <= currentWaveIndex)
         {
-            Debug.LogWarning($"EnemySpawner \"{transform.name}\" has no wave {currentWaveIndex}");
+            Debug.LogError($"EnemySpawner \"{transform.name}\" has no wave at index {currentWaveIndex}");
             return;
         }
         
@@ -71,13 +71,18 @@ public class EnemySpawner : MonoBehaviour
             
             // set time
             lastWaveTime = Time.time;
-            currentWaveIndex++;
-            SetSettings(currentWaveIndex);
+            SetSettings(currentWaveIndex + 1);
         }
     }
     
     public void SetSettings(int index)
     {
+        if (waves.Length <= index)
+        {
+            Debug.LogWarning($"EnemySpawner \"{transform.name}\" has no wave at index {currentWaveIndex}");
+            return;
+        }
+        
         currentWaveIndex = index;
         currentWave = waves[index];
         totalWeights = 0;
