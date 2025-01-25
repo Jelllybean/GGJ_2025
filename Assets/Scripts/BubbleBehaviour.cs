@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BubbleBehaviour : MonoBehaviour
 {
-	Rigidbody rb;
+	private Rigidbody rb;
 
-	public Vector3 gravity;
+	private Vector3 gravity;
 
 	void Start()
 	{
@@ -20,10 +20,7 @@ public class BubbleBehaviour : MonoBehaviour
 			rb.constraints = RigidbodyConstraints.FreezePosition;
 			other.GetComponent<Enemy>().AttachBubble(gameObject);
 			transform.SetParent(other.transform);
-			//transform.localPosition = Vector3.zero;
-			//other.transform.SetParent(this.transform);
-			//other.transform.localPosition = Vector3.zero;
-			//rb.linearVelocity = Vector3.zero; 
+			BubblePopAudio.instance.PlayBubbleAudio();
 		}
 		else if(other.CompareTag("Dart"))
 		{
