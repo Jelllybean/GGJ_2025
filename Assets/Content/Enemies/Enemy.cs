@@ -20,6 +20,7 @@ public class Enemy : Agent
     [HideInInspector] public List<GameObject> smallBubbles = new List<GameObject>();
 
     private int bubbleCount = 0;
+    private bool isInBubble = false;
     private float lastStepTime = Mathf.NegativeInfinity;
     private float speedMultiplier = 1;
 
@@ -35,7 +36,6 @@ public class Enemy : Agent
         // only move forwards when making a step
         float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
         navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
-
     }
 
     public void AttachBubble(GameObject _smallBubble)
@@ -45,6 +45,7 @@ public class Enemy : Agent
         if(bubbleCount > bubblesUntilBigBubble)
         {
             bigBubble.SetActive(true);
+            isInBubble = true;
             for (int i = 0; i < smallBubbles.Count; i++)
             {
                 smallBubbles[i].SetActive(false);
@@ -56,6 +57,14 @@ public class Enemy : Agent
         // reduce speed with each bubble
         speedMultiplier = Mathf.Lerp(maximumSpeedMult, minimumSpeedMult,
             ((float)bubbleCount / (float)bubblesUntilBigBubble));
+    }
+
+    public void OnDartHit()
+    {
+        if (isInBubble)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void MovementStep()
