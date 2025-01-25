@@ -17,6 +17,9 @@ public class Enemy : Agent
     [FormerlySerializedAs("minimumSpeed")] [SerializeField] private float minimumSpeedMult;
     [FormerlySerializedAs("maximumSpeed")] [SerializeField] private float maximumSpeedMult;
 
+    [Header("Visuals")] 
+    [SerializeField] private Animator animator;
+
     [HideInInspector] public List<GameObject> smallBubbles = new List<GameObject>();
 
     private int bubbleCount = 0;
@@ -29,7 +32,7 @@ public class Enemy : Agent
 
 	private void Start()
     {
-        navAgent.speed = maximumSpeedMult;
+        speedMultiplier = maximumSpeedMult;
 
         destroyEnemy = DestroyEnemy.destroyedEnemies[enemyType];
     }
@@ -37,10 +40,21 @@ public class Enemy : Agent
     protected override void Update()
     {
         base.Update();
+        
+        animator.SetBool("IsOnOffMeshLink", navAgent.isOnOffMeshLink);
 
-        // only move forwards when making a step
-        float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
-        navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+        if (navAgent.isOnOffMeshLink)
+        {
+            navAgent.acceleration = 0.01f;
+            navAgent.speed = 6;
+        }
+        else
+        {
+            // only move forwards when making a step
+            navAgent.acceleration = 100000;
+            float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
+            navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+        }
     }
 
     public void AttachBubble(GameObject _smallBubble)
