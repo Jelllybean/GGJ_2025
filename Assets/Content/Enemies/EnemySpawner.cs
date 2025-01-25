@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
 {
     public EnemyWave[] waves;
     public int startingWave;
+    public Transform[] spawnLocations;
+    public EnemyWaveSpawnMode spawnMode;
     
     private EnemyWave currentWave;
     private int currentWaveIndex;
@@ -30,12 +32,41 @@ public class EnemySpawner : MonoBehaviour
         // check for time delay
         if (lastWaveTime + currentWave.spawnWaveDelaySeconds < Time.time)
         {
+            int roundRobinCounter = 0;
+            
             // spawn an amount of enemies, each one at random based on the weights
             for (int i = 0; i < currentWave.spawnWaveAmount; i++)
             {
                 GameObject enemyToSpawn = GetRandomEnemy();
-                // TODO: add spawnpoints
-                Instantiate(enemyToSpawn);
+                if (enemyToSpawn == null)
+                {
+                    Debug.LogError("Could not find an enemy to spawn!");
+                    return;
+                }
+                
+                // get spawn position based on spawnmode
+                switch (spawnMode)
+                {
+                    // RANDOM case
+                    default:
+                        int rnd = Random.Range(0, spawnLocations.Length);
+                        Instantiate(enemyToSpawn, spawnLocations[rnd].position, Quaternion.identity);
+                        break;
+                    
+                    case EnemyWaveSpawnMode.ROUND_ROBIN:
+                        Instantiate(enemyToSpawn, spawnLocations[roundRobinCounter].position,
+                            Quaternion.identity);
+                        roundRobinCounter++;
+                        roundRobinCounter %= spawnLocations.Length;
+                        break;
+                    
+                    case EnemyWaveSpawnMode.SAME_FOR_EACH:
+                        for (int j = 0; j < spawnLocations.Length; j++)
+                        {
+                            Instantiate(enemyToSpawn, spawnLocations[j].position, Quaternion.identity);
+                        }
+                        break;
+                }
             }
             
             // set time
@@ -68,16 +99,23 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < currentWave.entries.Length; i++)
         {
             // if accumulated weight ends up higher than rnd, select and break
-            EnemyWaveEntry iSetting = currentWave.entries[i];
-            weightAccumulated += iSetting.weight;
+            EnemyWaveEntry iWave = currentWave.entries[i];
+            weightAccumulated += iWave.weight;
 
-            if (weightAccumulated <= rnd)
+            if (weightAccumulated >= rnd)
             {
-                enemy = iSetting.prefab;
+                enemy = iWave.prefab;
                 break;
             }
         }
 
         return enemy;
+    }
+
+    public enum EnemyWaveSpawnMode
+    {
+        RANDOM,
+        ROUND_ROBIN,
+        SAME_FOR_EACH
     }
 }

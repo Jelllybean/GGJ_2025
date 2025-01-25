@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemySpawnerTable", menuName = "EnemySpawnerTable", order = -10000)]
+[CreateAssetMenu(fileName = "EnemyWave", menuName = "EnemyWave", order = -10000)]
 public class EnemyWave : ScriptableObject
 {
     public EnemyWaveEntry[] entries;
