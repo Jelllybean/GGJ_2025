@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7020881300387689298}
   - component: {fileID: 99314005600186274}
   - component: {fileID: 4719991436671220917}
-  - component: {fileID: 6952141522142690514}
   m_Layer: 0
   m_Name: DestroyedEnemy
   m_TagString: Untagged
@@ -463,20 +462,6 @@ MonoBehaviour:
   skr: {fileID: 0}
   rest: {fileID: 0}
   sound: {fileID: 0}
---- !u!114 &6952141522142690514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077916536850301453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88fdb2f0c1ac9341814e159c34387b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayfireRigid: {fileID: 4719991436671220917}
-  bomb: {fileID: 5556453934902270716}
 --- !u!1 &4497838826286585065
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,8 +472,9 @@ GameObject:
   m_Component:
   - component: {fileID: 234841038656732972}
   - component: {fileID: 5556453934902270716}
+  - component: {fileID: 6069891330127119916}
   m_Layer: 0
-  m_Name: Bomb_Range_6
+  m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,3 +576,17 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6069891330127119916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4497838826286585065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88fdb2f0c1ac9341814e159c34387b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayfireRigid: {fileID: 4719991436671220917}
+  bomb: {fileID: 5556453934902270716}
