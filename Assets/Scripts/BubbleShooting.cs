@@ -23,6 +23,8 @@ public class BubbleShooting : MonoBehaviour
 	public bool canShoot = true;
 	public TextMeshProUGUI ammoCounter;
 	public string infinitySymbol;
+	public Image numberImage;
+	public List<Sprite> numberSprites;
 	public Slider slider;
 
 	[Header("Audio")]
@@ -38,6 +40,7 @@ public class BubbleShooting : MonoBehaviour
 			bubbles.Add(_obj.GetComponent<Rigidbody>());
 			_obj.SetActive(false);
 		}
+		numberImage.sprite = numberSprites[6];
 	}
 
 	void Update()
@@ -57,9 +60,10 @@ public class BubbleShooting : MonoBehaviour
 				bubblesIndex++;
 			}
 			currentAmmoCount--;
+			numberImage.sprite = numberSprites[currentAmmoCount];
 			int _index = SoundIndex();
 			wooshEffects[_index].Play();
-			ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
+			//ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 			if (currentAmmoCount <= 0)
 			{
 				canShoot = false;
@@ -78,20 +82,20 @@ public class BubbleShooting : MonoBehaviour
 	{
 		canShoot = true;
 		currentAmmoCount = 6;
-		ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
+		//ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 	}
 
 	private int SoundIndex()
 	{
 		int _index = Random.Range(0, wooshEffects.Count - 1);
-		if(_index != previousIndex)
+		if (_index != previousIndex)
 		{
 			previousIndex = _index;
 			return _index;
 		}
 		else
 		{
-			return previousIndex%wooshEffects.Count;
+			return previousIndex % wooshEffects.Count;
 		}
 	}
 
@@ -112,7 +116,8 @@ public class BubbleShooting : MonoBehaviour
 		slider.gameObject.SetActive(false);
 		canShoot = true;
 		currentAmmoCount = 6;
-		ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
+		numberImage.sprite = numberSprites[6];
+		//ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 		yield return null;
 	}
 

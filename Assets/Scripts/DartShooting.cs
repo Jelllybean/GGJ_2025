@@ -62,7 +62,7 @@ public class DartShooting : MonoBehaviour
     void Shoot(float force)
     {
 	    darts[currentDart].gameObject.SetActive(true);
-		darts[currentDart].transform.LookAt(AimDart());
+	    darts[currentDart].transform.up = camera.transform.forward;
 		darts[currentDart].transform.position = leftHandPosition.position;
 	    darts[currentDart].AddForce(force * camera.transform.forward, ForceMode.VelocityChange);
 	    if (currentDart >= darts.Count - 1)
