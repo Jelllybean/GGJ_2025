@@ -479,9 +479,9 @@ MonoBehaviour:
   minCameraHeight: -35
   maxCameraHeight: 60
   controller: {fileID: 4134736962510396778}
-  acceleration: 0.19
+  acceleration: 0.25
   friction: 8
-  gravityAccel: 1
+  gravityAccel: 10
   animator: {fileID: 5785195170769004875}
 --- !u!114 &4681400308769587389
 MonoBehaviour:

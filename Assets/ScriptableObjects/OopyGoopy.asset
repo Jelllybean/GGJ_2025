@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b324ba9558f7c05449d4b7487f0bb3d5, type: 3}
-  m_Name: EnemyOopyGoopy
+  m_Script: {fileID: 11500000, guid: 5f8fdbdb625b7f173b0f872e3113003b, type: 3}
+  m_Name: OopyGoopy
   m_EditorClassIdentifier: 
   blackboardValues: []
-  stepTime: 0.6
+  stepTime: 0.5
+  rangedDistance: 15
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
