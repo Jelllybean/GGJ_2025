@@ -513,7 +513,7 @@ MonoBehaviour:
   boxSize: {x: 6, y: 2}
   deletion: 0
   fadeType: 0
-  strength: 35
+  strength: 27.5
   variation: 50
   chaos: 30
   forceByMass: 0
@@ -590,3 +590,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayfireRigid: {fileID: 4719991436671220917}
   bomb: {fileID: 5556453934902270716}
+  enemyType: 0
