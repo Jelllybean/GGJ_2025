@@ -79,7 +79,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e5d84a86a7e1679449d9398980413344, type: 3}
   - {fileID: 21300000, guid: 6458eccbeb6b928468211dcd371019a8, type: 3}
   - {fileID: 21300000, guid: 37dedb8d1e3c7d44db37dbc66d48b19d, type: 3}
+  - {fileID: 21300000, guid: eb8919f24f275b74dadce6de93bdaaa7, type: 3}
+  - {fileID: 21300000, guid: 9612b106fc50c954583f3a8af45b8d94, type: 3}
+  - {fileID: 21300000, guid: a1e1e42128100ca42a476225e47bd05c, type: 3}
+  - {fileID: 21300000, guid: 9f43e701e5a903a4888a34b590c5eb6f, type: 3}
+  - {fileID: 21300000, guid: 3f00c2ec1983b504db9cafa674695071, type: 3}
+  - {fileID: 21300000, guid: 433c4603bae2d16418037fab8a2ea851, type: 3}
+  - {fileID: 21300000, guid: 36bd77494b136d946b3fdb9648688d11, type: 3}
+  - {fileID: 21300000, guid: a5167eef2ca8032448e04be367f670b8, type: 3}
+  - {fileID: 21300000, guid: 917987925061b964fb9d541486fd2fdd, type: 3}
   slider: {fileID: 0}
+  animator: {fileID: 0}
   wooshEffects:
   - {fileID: 2804340663600724152}
   - {fileID: 7416706506869106688}
