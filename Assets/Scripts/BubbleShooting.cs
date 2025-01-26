@@ -26,6 +26,7 @@ public class BubbleShooting : MonoBehaviour
 	public Image numberImage;
 	public List<Sprite> numberSprites;
 	public Slider slider;
+	public Animator animator;
 
 	[Header("Audio")]
 	public List<AudioSource> wooshEffects;
@@ -101,6 +102,7 @@ public class BubbleShooting : MonoBehaviour
 
 	public IEnumerator Reload()
 	{
+		animator.SetBool("isReloading", true);
 		slider.gameObject.SetActive(true);
 		slider.value = 0;
 		float _elapsedTime = 0;
@@ -117,6 +119,7 @@ public class BubbleShooting : MonoBehaviour
 		canShoot = true;
 		currentAmmoCount = 6;
 		numberImage.sprite = numberSprites[6];
+		animator.SetBool("isReloading", false);
 		//ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 		yield return null;
 	}
