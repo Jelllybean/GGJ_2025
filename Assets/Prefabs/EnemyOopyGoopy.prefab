@@ -297,7 +297,7 @@ MonoBehaviour:
   active: 1
   behaviour: {fileID: 11400000, guid: 037218e27be49748e97f52897d35a65b, type: 2}
   ticksPerSecond: 20
-  logCurrentNode: 1
+  logCurrentNode: 0
   navAgent: {fileID: 9137069057434762871}
   stepDecaySeconds: 0.4
   stepSpeedCurve:
@@ -341,6 +341,7 @@ MonoBehaviour:
   smallBubbles: []
   destroyEnemy: {fileID: 0}
   enemyType: 0
+  isDustBunny: 0
 --- !u!195 &9137069057434762871
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -397,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 928462267006054315, guid: 20693499583295b47a9119332ed0e8f2, type: 3}
-  throwingForce: 500
+  throwingForce: 500000
   cooldown: 0.3
 --- !u!1 &8090370097418750157
 GameObject:

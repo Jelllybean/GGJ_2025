@@ -17,6 +17,8 @@ public class OopyGoopyBlueprint: BehaviourBlueprint
             new NGetGameObjectWithTag("Player", BB_TARGET),
             new NGetDistanceTo(BB_TARGET, BB_TARGET_DISTANCE, PositionReadMode.GAME_OBJECT),
             
+            new NMoveTowards(BB_TARGET, PositionReadMode.GAME_OBJECT),
+            
             // if target is nearby, shoot
             new NCSelector(new INode[]
             {
@@ -30,7 +32,6 @@ public class OopyGoopyBlueprint: BehaviourBlueprint
                 
                 new NCSequence(new INode[]
                 {
-                    new NMoveTowards(BB_TARGET, PositionReadMode.GAME_OBJECT),
                     new NPrint(PrintMode.LOG, "Move"),
                     new NEnemyStep(),
                     new NWait(stepTime)

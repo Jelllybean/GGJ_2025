@@ -6,8 +6,12 @@ public class NEnemyShoot : ANode
     {
         if(bb.TryGet("common_agent", out Enemy agent))
         {
-            agent.GetComponent<EnemyProjectileShooter>().Shoot();
-            return NodeReturnState.SUCCESS;
+            if(agent.TryGetComponent(out EnemyProjectileShooter shooter))
+            {
+                shooter.Shoot();
+                return NodeReturnState.SUCCESS;
+            }
+            else return NodeReturnState.FAILED;
         }
 
         return NodeReturnState.ERROR;
