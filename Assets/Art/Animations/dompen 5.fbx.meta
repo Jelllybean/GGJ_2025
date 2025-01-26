@@ -147,7 +147,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|ArmatureAction.001
+      name: reload
       takeName: Armature|ArmatureAction.001
       internalID: -1422011007694221501
       firstFrame: 0
