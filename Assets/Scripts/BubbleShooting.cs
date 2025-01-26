@@ -7,8 +7,8 @@ using System.Collections;
 
 public class BubbleShooting : MonoBehaviour
 {
-	private Camera camera;
-	[SerializeField] private float shootingForce = 100f;
+	public Camera camera;
+	[SerializeField] private float shootingForce = 4000;
 	public GameObject bubblePrefab;
 
 	public Transform rightHandPosition;
@@ -34,7 +34,7 @@ public class BubbleShooting : MonoBehaviour
 
 	void Start()
 	{
-		camera = Camera.main;
+		//camera = Camera.main;
 		for (int i = 0; i < 200; i++)
 		{
 			GameObject _obj = Instantiate(bubblePrefab);
@@ -49,10 +49,13 @@ public class BubbleShooting : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown(0) && canShoot)
 		{
-			bubbles[bubblesIndex].gameObject.SetActive(true);
-			bubbles[bubblesIndex].transform.SetParent(null);
-			bubbles[bubblesIndex].transform.position = rightHandPosition.position;
-			bubbles[bubblesIndex].AddForce(shootingForce * camera.transform.forward);
+			if (bubbles[bubblesIndex])
+			{
+				bubbles[bubblesIndex].gameObject.SetActive(true);
+				bubbles[bubblesIndex].transform.SetParent(null);
+				bubbles[bubblesIndex].transform.position = rightHandPosition.position;
+				bubbles[bubblesIndex].AddForce(shootingForce * camera.transform.forward);
+			}
 			if (bubblesIndex >= bubbles.Count - 1)
 			{
 				bubblesIndex = 0;
@@ -83,7 +86,7 @@ public class BubbleShooting : MonoBehaviour
 	public void CantShoot()
 	{
 		canShoot = true;
-		currentAmmoCount = 6;
+		currentAmmoCount = 12;
 		//ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 	}
 
@@ -119,7 +122,7 @@ public class BubbleShooting : MonoBehaviour
 		slider.gameObject.SetActive(false);
 		canShoot = true;
 		currentAmmoCount = 6;
-		numberImage.sprite = numberSprites[6];
+		numberImage.sprite = numberSprites[12];
 		animator.SetBool("isReloading", false);
 		//ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
 		yield return null;

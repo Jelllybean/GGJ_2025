@@ -8,6 +8,7 @@ public class DartShooting : MonoBehaviour
 	private CinemachineCamera camera;
 	[SerializeField] private float minShootForce, maxShootForce, maxChargeTime;
 	[SerializeField] private float fovIncrease;
+	[SerializeField] private Transform aimTarget;
 
 	public GameObject dartPrefab;
 	public Transform leftHandPosition;
@@ -21,7 +22,7 @@ public class DartShooting : MonoBehaviour
 	void Start()
     {
 		camera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineCamera>();
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < 100; i++)
 		{
 			GameObject _obj2 = Instantiate(dartPrefab);
 			darts.Add(_obj2.GetComponent<Rigidbody>());
@@ -44,7 +45,7 @@ public class DartShooting : MonoBehaviour
 		if (isChargingShot)
 		{
 			float normalizedCharge = 1 - (Mathf.Max(0,(chargeStartTime + maxChargeTime) - Time.time) / maxChargeTime);
-			camera.Lens.FieldOfView = cameraDefaultFov + fovIncrease * normalizedCharge;
+			//camera.Lens.FieldOfView = cameraDefaultFov + fovIncrease * normalizedCharge;
 			
 			// shoot
 			if (Input.GetMouseButtonUp(1))
@@ -64,7 +65,7 @@ public class DartShooting : MonoBehaviour
 	    darts[currentDart].gameObject.SetActive(true);
 	    darts[currentDart].transform.up = camera.transform.forward;
 		darts[currentDart].transform.position = leftHandPosition.position;
-	    darts[currentDart].AddForce(force * camera.transform.forward, ForceMode.VelocityChange);
+	    darts[currentDart].AddForce(force * (aimTarget.position - camera.transform.position).normalized, ForceMode.VelocityChange);
 	    if (currentDart >= darts.Count - 1)
 	    {
 		    currentDart = 0;

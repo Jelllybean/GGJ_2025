@@ -30,7 +30,7 @@ public class BubbleBehaviour : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		rb.AddForce(gravity * 0.5f, ForceMode.Acceleration);
+		rb.AddForce(gravity * 0.5f, ForceMode.Force);
 	}
 
 	void ReverseGravity() => gravity *= -1;
