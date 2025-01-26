@@ -1642,6 +1642,42 @@ PrefabInstance:
       propertyPath: ammoCounter
       value: 
       objectReference: {fileID: 1835498183}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: numberImage
+      value: 
+      objectReference: {fileID: 4534251697060887762}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: numberSprites.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: 'numberSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: b15425ea5db1a4e4f8e40e496ebb745a, type: 3}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: 'numberSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 96743348304d66d48b02d648c9762cc4, type: 3}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: 'numberSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 6272beff12f24cf49b683563caa2a984, type: 3}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: 'numberSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: a7adc9c9f1077b1448b14e69d219c4f0, type: 3}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: 'numberSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 21300000, guid: edc90b1597eaca24891527befbb3c483, type: 3}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: 'numberSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 19512c22ef2b79c4abe018638e938df2, type: 3}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: 'numberSprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 18d454edecbd7b647b465e212987ff88, type: 3}
     - target: {fileID: 3551384077196667208, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
       propertyPath: health
       value: 100
@@ -2167,6 +2203,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
+--- !u!114 &4534251697060887762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2669336118119012059, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
+  m_PrefabInstance: {fileID: 4534251697060887761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6476733766854454048
 PrefabInstance:
   m_ObjectHideFlags: 0
