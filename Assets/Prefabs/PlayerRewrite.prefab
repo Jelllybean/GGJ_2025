@@ -479,7 +479,7 @@ MonoBehaviour:
   minCameraHeight: -35
   maxCameraHeight: 60
   controller: {fileID: 4134736962510396778}
-  acceleration: 0.12
+  acceleration: 0.19
   friction: 8
   gravityAccel: 1
   animator: {fileID: 5785195170769004875}
@@ -614,7 +614,7 @@ CharacterController:
   m_Height: 2.16
   m_Radius: 0.7
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 1
   m_SkinWidth: 0.17
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
