@@ -23,10 +23,6 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
 
-        float _currentHealth = health;
-		float _elapsedTime = 0;
-		float _waitTime = 1.5f;
-
 		while (health < 100)
 		{
             health++;
