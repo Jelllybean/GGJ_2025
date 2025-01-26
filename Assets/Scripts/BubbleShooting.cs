@@ -42,6 +42,7 @@ public class BubbleShooting : MonoBehaviour
 			_obj.SetActive(false);
 		}
 		numberImage.sprite = numberSprites[6];
+		slider.value = 0;
 	}
 
 	void Update()
