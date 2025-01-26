@@ -12,7 +12,7 @@ public class DamageArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lastDamageTime + cooldown < Time.time)
+        if (lastDamageTime + cooldown > Time.time)
         {
             return;
         }
