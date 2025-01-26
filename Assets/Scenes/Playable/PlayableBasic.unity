@@ -927,6 +927,10 @@ PrefabInstance:
       propertyPath: TiltAxis.Value
       value: 11.02
       objectReference: {fileID: 0}
+    - target: {fileID: 8952598102278726601, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: Lens.FieldOfView
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 9117257862136522750, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
       propertyPath: VerticalArmLength
       value: 0.2
