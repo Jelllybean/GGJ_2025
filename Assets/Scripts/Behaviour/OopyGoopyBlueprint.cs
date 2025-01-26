@@ -22,7 +22,8 @@ public class OopyGoopyBlueprint: BehaviourBlueprint
             {
                 new NDComparison<float>(new NDHasLineOfSight(new NCSequence(new INode[]
                         {
-                            new NPrint(PrintMode.LOG, "Shoot")
+                            new NPrint(PrintMode.LOG, "Shoot"),
+                            new NEnemyShoot()
                         }), 
                         BB_TARGET, playerLayerMask),
                     BB_TARGET_DISTANCE, Comparator.GREATER, rangedDistance, true),
