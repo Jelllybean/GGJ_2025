@@ -26,12 +26,12 @@ public class Enemy : Agent
 	private int bubbleCount = 0;
 	private bool isInBubble = false;
 	private float lastStepTime = Mathf.NegativeInfinity;
-	private float speedMultiplier = 1;
+	[HideInInspector] public float speedMultiplier = 1;
 
 	public DestroyEnemy destroyEnemy;
 	public EnemyType enemyType;
 
-	public bool isDustBunny;
+	[FormerlySerializedAs("isDustBunny")] public bool useStep;
 
 	private void Start()
 	{
@@ -60,12 +60,17 @@ public class Enemy : Agent
 			}
 			else
 			{
-				if(!isDustBunny)
+				if (!useStep)
 				{
 					// only move forwards when making a step
 					navAgent.acceleration = 100000;
-					float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
+					float normalizedStep =
+						(Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
 					navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+				}
+				else
+				{
+					navAgent.speed = speedMultiplier;
 				}
 			}
 		}

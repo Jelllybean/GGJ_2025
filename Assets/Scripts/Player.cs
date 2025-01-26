@@ -39,9 +39,13 @@ public class Player : MonoBehaviour
         lookY = Mathf.Clamp(lookY + sensitivityY * -lookInput.y, minCameraHeight, maxCameraHeight);
         lookX = lookX + sensitivityX * lookInput.x;
         eyes.rotation = Quaternion.Euler(lookY, lookX, 0);
-        model.rotation = Quaternion.Lerp(model.rotation, Quaternion.Euler(0, lookX, 0), Time.deltaTime * modelRotationSpeed) ;
-        
-        // movement
+        if (model != null)
+        {
+            model.rotation = Quaternion.Lerp(model.rotation, Quaternion.Euler(0, lookX, 0),
+                Time.deltaTime * modelRotationSpeed);
+        }
+
+    // movement
         velocity += cam.transform.forward * (moveInput.y * acceleration * Time.deltaTime);
         velocity += cam.transform.right * (moveInput.x * acceleration * Time.deltaTime);
         if(!controller.isGrounded) velocity += Vector3.down * (gravityAccel * Time.deltaTime);
