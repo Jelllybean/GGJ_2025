@@ -65,6 +65,7 @@ MonoBehaviour:
   canShoot: 1
   ammoCounter: {fileID: 0}
   infinitySymbol: "/\u221E"
+  slider: {fileID: 0}
   wooshEffects:
   - {fileID: 2804340663600724152}
   - {fileID: 7416706506869106688}
