@@ -41,7 +41,7 @@ public class BubbleShooting : MonoBehaviour
 			bubbles.Add(_obj.GetComponent<Rigidbody>());
 			_obj.SetActive(false);
 		}
-		numberImage.sprite = numberSprites[6];
+		numberImage.sprite = numberSprites[12];
 		slider.value = 0;
 	}
 

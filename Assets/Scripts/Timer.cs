@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using RayFireEditor;
 using System;
 
 public class Timer : MonoBehaviour

@@ -7,6 +7,8 @@ using UnityEngine.Serialization;
 
 public class Enemy : Agent
 {
+	public static int enemiesKilled;
+
 	[Header("Navigation")]
 	[SerializeField] private NavMeshAgent navAgent;
 	[SerializeField] private float stepDecaySeconds;
@@ -106,6 +108,7 @@ public class Enemy : Agent
 			destroyEnemy?.ExplodeEnemy(transform);
 			ParticleManager.instance.PositionParticles(transform);
 			Destroy(gameObject);
+			enemiesKilled++;
 		}
 	}
 

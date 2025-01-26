@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static int totalEnemies = 9999999;
+
     public EnemyWave[] waves;
     public int startingWave;
     public Transform[] spawnLocations;
@@ -20,7 +22,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
+        totalEnemies = 0;
         SetSettings(startingWave);
+        for(int i = 0; i < waves.Length; i++)
+        {
+            totalEnemies += waves[i].spawnWaveAmount;
+        }
     }
 
     public void Update()
