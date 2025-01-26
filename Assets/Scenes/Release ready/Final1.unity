@@ -2392,9 +2392,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 40
+  near clip plane: 0.01
+  far clip plane: 3000
+  field of view: 45
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -3437,7 +3437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8952598102278726601, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
       propertyPath: Lens.FieldOfView
-      value: 40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 8998378195491963085, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
       propertyPath: m_AnchorMax.x
