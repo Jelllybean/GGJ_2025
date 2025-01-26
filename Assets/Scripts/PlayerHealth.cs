@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public RectTransform mask;
     public float health;
 
+    public GameObject deathMenu;
     void Update()
     {
         mask.localScale = Vector2.Lerp(new Vector2(1.2546f, 1.456591f), new Vector2(2.487621f, 2.888128f), health / 100f);
@@ -16,6 +17,10 @@ public class PlayerHealth : MonoBehaviour
     public void RemoveHealth(float _healthToRemove)
     {
         health -= _healthToRemove;
+        if(health <= 0)
+        {
+            Death();
+        }
         Debug.Log("Took "+_healthToRemove + " damage");
         StartCoroutine("AddHealthBack");
     }
@@ -32,4 +37,10 @@ public class PlayerHealth : MonoBehaviour
 
         health = 100;
 	}
+
+    public void Death()
+    {
+        FindFirstObjectByType<Player>().enabled = false;
+        Instantiate(deathMenu);
+    }
 }

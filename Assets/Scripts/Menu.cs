@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
+	public TextMeshProUGUI timerText;
 	void Start()
 	{
 		Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
 		Screen.SetResolution(Display.main.systemWidth, Display.main.systemHeight, true);
+
+		if(timerText)
+		{
+			SetTimer();
+		}
 	}
 
 	public void StartGame(int _levelIndex)
@@ -56,5 +61,10 @@ public class Menu : MonoBehaviour
 			Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
 		}
 
+	}
+
+	public void SetTimer()
+	{
+		timerText.text = FindFirstObjectByType<Timer>().timerText.text;
 	}
 }
