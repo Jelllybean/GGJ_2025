@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        velocity -= new Vector3(velocity.x * friction * Time.deltaTime, velocity.y,
+        velocity -= new Vector3(velocity.x * friction * Time.deltaTime, velocity.y, 
             velocity.z * friction * Time.deltaTime);
     }
 
