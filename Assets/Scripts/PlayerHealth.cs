@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     public void RemoveHealth(float _healthToRemove)
     {
         health -= _healthToRemove;
+        Debug.Log("Took "+_healthToRemove + " damage");
         StartCoroutine("AddHealthBack");
     }
 

@@ -3142,6 +3142,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRewrite
       objectReference: {fileID: 0}
+    - target: {fileID: 5938140591374560690, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938140591374560690, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938140591374560690, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7274338901826104888, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.46
