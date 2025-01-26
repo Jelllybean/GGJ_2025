@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Dart
+  - PlayerCamera
   layers:
   - Default
   - TransparentFX
