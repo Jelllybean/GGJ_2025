@@ -8,10 +8,12 @@ using static UnityEngine.InputSystem.InputAction;
 public class Player : MonoBehaviour
 {
     [Header("Aiming")]
-    [SerializeField] private CinemachineThirdPersonFollow cineCamTP;
+    [SerializeField] private Transform eyes;
     [SerializeField] private float sensitivityX, sensitivityY;
     [SerializeField] private float minCameraHeight, maxCameraHeight;
     private Vector2 lookInput;
+    private float lookY;
+    private Camera cam;
     
     [Header("Movement")]
     [SerializeField] private CharacterController controller;
@@ -24,18 +26,20 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        cam = Camera.main;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
         // aiming
-        cineCamTP.VerticalArmLength -= lookInput.y * Time.deltaTime * sensitivityY;
-        cineCamTP.VerticalArmLength = Mathf.Clamp(cineCamTP.VerticalArmLength, minCameraHeight, maxCameraHeight);
-        transform.Rotate(0, lookInput.x * Time.deltaTime * sensitivityX, 0);
+        lookY = Mathf.Clamp(lookY + sensitivityY * Time.deltaTime * -lookInput.y, minCameraHeight, maxCameraHeight);
+        eyes.rotation = Quaternion.Euler(lookY, 0, 0);
         
         // movement
-        velocity += cineCamTP.transform.forward * (moveInput.y * acceleration * Time.deltaTime);
-        velocity += cineCamTP.transform.right * (moveInput.x * acceleration * Time.deltaTime);
+        velocity += cam.transform.forward * (moveInput.y * acceleration * Time.deltaTime);
+        velocity += cam.transform.right * (moveInput.x * acceleration * Time.deltaTime);
         if(!controller.isGrounded) velocity += Vector3.down * (gravityAccel * Time.deltaTime);
 
         controller.Move(velocity);
