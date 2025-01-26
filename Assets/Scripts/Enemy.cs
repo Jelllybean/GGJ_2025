@@ -99,6 +99,7 @@ public class Enemy : Agent
 		if (isInBubble)
 		{
 			destroyEnemy?.ExplodeEnemy(transform);
+			ParticleManager.instance.PositionParticles(transform);
 			Destroy(gameObject);
 		}
 	}
