@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 9137069057434762871}
   - component: {fileID: 5932562000373612998}
   - component: {fileID: -6942616126860094339}
+  - component: {fileID: 6404000143846767908}
   m_Layer: 7
   m_Name: EnemyOopyGoopy
   m_TagString: Enemy
@@ -339,9 +340,10 @@ MonoBehaviour:
   maximumSpeedMult: 10
   animator: {fileID: 5491184032276471816}
   smallBubbles: []
+  speedMultiplier: 1
   destroyEnemy: {fileID: 0}
   enemyType: 0
-  isDustBunny: 0
+  useStep: 1
 --- !u!195 &9137069057434762871
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -400,6 +402,24 @@ MonoBehaviour:
   projectile: {fileID: 928462267006054315, guid: 20693499583295b47a9119332ed0e8f2, type: 3}
   throwingForce: 500000
   cooldown: 0.3
+--- !u!114 &6404000143846767908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3359167561684497078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b08526f3d29524fa9674b5dedf668c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overlapSphereMask:
+    serializedVersion: 2
+    m_Bits: 512
+  overlapSphereRadius: 1.65
+  damage: 10
+  cooldown: 0.2
 --- !u!1 &8090370097418750157
 GameObject:
   m_ObjectHideFlags: 0

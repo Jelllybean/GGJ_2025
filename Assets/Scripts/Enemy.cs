@@ -60,7 +60,7 @@ public class Enemy : Agent
 			}
 			else
 			{
-				if (!useStep)
+				if (useStep)
 				{
 					// only move forwards when making a step
 					navAgent.acceleration = 100000;
