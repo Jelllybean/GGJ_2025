@@ -1572,10 +1572,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 29930004}
     m_Modifications:
+    - target: {fileID: 647737860309797401, guid: 317af51d1c99dea409663d390234809e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 48a1d28029dcf2a83a81a24d0469ef83, type: 2}
+    - target: {fileID: 1426696327101044520, guid: 317af51d1c99dea409663d390234809e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4327bdb5bb2f79058a957c89742c8b18, type: 2}
+    - target: {fileID: 1581326574450407432, guid: 317af51d1c99dea409663d390234809e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1aeded8a2dcb5a02cba6b5198922ab63, type: 2}
     - target: {fileID: 2496129120745979108, guid: 317af51d1c99dea409663d390234809e, type: 3}
       propertyPath: m_Name
       value: Puzzle_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2974206509838590018, guid: 317af51d1c99dea409663d390234809e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 825ff7502f909adb0a39264fb95dda12, type: 2}
     - target: {fileID: 3021872027857462878, guid: 317af51d1c99dea409663d390234809e, type: 3}
       propertyPath: m_LocalScale.x
       value: 50
@@ -1664,6 +1680,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.00076
       objectReference: {fileID: 0}
+    - target: {fileID: 8436414059231441823, guid: 317af51d1c99dea409663d390234809e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b2f316150d450196bf6481c3b14fa0b, type: 2}
     - target: {fileID: 9038027417566647964, guid: 317af51d1c99dea409663d390234809e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0033
@@ -3295,6 +3315,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1859667016}
     - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1254223937}
+    - target: {fileID: 2536191046802033509, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
       propertyPath: ammoCounter
       value: 
       objectReference: {fileID: 1859667017}
@@ -3683,6 +3707,11 @@ BoxCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3021872027857462878, guid: 317af51d1c99dea409663d390234809e, type: 3}
   m_PrefabInstance: {fileID: 496080087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1254223937 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7318356307939634160, guid: db699182f30079b1a85e722c01bbd8d0, type: 3}
+  m_PrefabInstance: {fileID: 1122824461}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1266253913 stripped
 GameObject:
@@ -4552,6 +4581,8 @@ MonoBehaviour:
   - {fileID: 272944400}
   - {fileID: 897922604}
   spawnMode: 1
+  minScale: 0.8
+  maxScale: 1.2
 --- !u!4 &1544321184
 Transform:
   m_ObjectHideFlags: 0
