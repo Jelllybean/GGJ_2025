@@ -31,11 +31,15 @@ public class Enemy : Agent
 	public DestroyEnemy destroyEnemy;
 	public EnemyType enemyType;
 
+	public bool isDustBunny;
+
 	private void Start()
 	{
 		speedMultiplier = maximumSpeedMult;
 
 		destroyEnemy = DestroyEnemy.destroyedEnemies[enemyType];
+
+		navAgent.speed = speedMultiplier;
 	}
 
 	protected override void Update()
@@ -44,7 +48,10 @@ public class Enemy : Agent
 		{
 			base.Update();
 
-			animator.SetBool("IsOnOffMeshLink", navAgent.isOnOffMeshLink);
+			if(animator)
+			{
+				animator.SetBool("IsOnOffMeshLink", navAgent.isOnOffMeshLink);
+			}
 
 			if (navAgent.isOnOffMeshLink)
 			{
@@ -53,10 +60,13 @@ public class Enemy : Agent
 			}
 			else
 			{
-				// only move forwards when making a step
-				navAgent.acceleration = 100000;
-				float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
-				navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+				if(!isDustBunny)
+				{
+					// only move forwards when making a step
+					navAgent.acceleration = 100000;
+					float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
+					navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+				}
 			}
 		}
 	}

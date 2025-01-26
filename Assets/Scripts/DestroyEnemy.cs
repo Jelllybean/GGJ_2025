@@ -2,7 +2,7 @@ using UnityEngine;
 using RayFire;
 using System.Collections.Generic;
 
-public enum EnemyType { Goop }
+public enum EnemyType { Goop, Bunny }
 public class DestroyEnemy : MonoBehaviour
 {
 	public RayfireRigid rayfireRigid;
