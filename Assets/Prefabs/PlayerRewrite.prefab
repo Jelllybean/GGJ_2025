@@ -182,8 +182,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677591850170916177}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.0068939645, z: -0, w: 0.9999763}
-  m_LocalPosition: {x: 1.4073305, y: 0.84000003, z: -3.8297677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.46, y: 0.84000003, z: -3.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -474,15 +474,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyes: {fileID: 1911404461584526739}
-  sensitivityX: 30
-  sensitivityY: 30
+  sensitivityX: 0.3
+  sensitivityY: 0.3
   minCameraHeight: -35
   maxCameraHeight: 60
   controller: {fileID: 4134736962510396778}
   acceleration: 0.12
   friction: 8
   gravityAccel: 1
-  animator: {fileID: 0}
+  animator: {fileID: 5785195170769004875}
 --- !u!114 &4681400308769587389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +615,7 @@ CharacterController:
   m_Radius: 0.7
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.17
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7846515113446213273
@@ -716,7 +716,7 @@ PrefabInstance:
     - target: {fileID: 508465987443352718, guid: 5e7d7e077e0beef4295f52dc137b92d8, type: 3}
       propertyPath: leftHandPosition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8786410788223675915}
     - target: {fileID: 612277752315205467, guid: 5e7d7e077e0beef4295f52dc137b92d8, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -736,7 +736,7 @@ PrefabInstance:
     - target: {fileID: 2537398656132306751, guid: 5e7d7e077e0beef4295f52dc137b92d8, type: 3}
       propertyPath: rightHandPosition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4868020486475838922}
     - target: {fileID: 3953098965275426366, guid: 5e7d7e077e0beef4295f52dc137b92d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1355,6 +1355,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 01fa8fdc7c411a04b8d7485d9221ca7b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5899045541632109885, guid: 01fa8fdc7c411a04b8d7485d9221ca7b, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1467,5 +1471,20 @@ PrefabInstance:
 --- !u!4 &479924248794641201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01fa8fdc7c411a04b8d7485d9221ca7b, type: 3}
+  m_PrefabInstance: {fileID: 82104874354693338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4868020486475838922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4804530623690187024, guid: 01fa8fdc7c411a04b8d7485d9221ca7b, type: 3}
+  m_PrefabInstance: {fileID: 82104874354693338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5785195170769004875 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 01fa8fdc7c411a04b8d7485d9221ca7b, type: 3}
+  m_PrefabInstance: {fileID: 82104874354693338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8786410788223675915 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -518991489204340015, guid: 01fa8fdc7c411a04b8d7485d9221ca7b, type: 3}
   m_PrefabInstance: {fileID: 82104874354693338}
   m_PrefabAsset: {fileID: 0}
