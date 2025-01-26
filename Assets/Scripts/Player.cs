@@ -46,11 +46,11 @@ public class Player : MonoBehaviour
         }
 
     // movement
-        velocity += cam.transform.forward * (moveInput.y * acceleration * Time.deltaTime);
-        velocity += cam.transform.right * (moveInput.x * acceleration * Time.deltaTime);
-        if(!controller.isGrounded) velocity += Vector3.down * (gravityAccel * Time.deltaTime);
+        velocity += cam.transform.forward * (moveInput.y * acceleration);
+        velocity += cam.transform.right * (moveInput.x * acceleration);
+        if(!controller.isGrounded) velocity += Vector3.down * (gravityAccel);
 
-        controller.Move(velocity);
+        controller.Move(velocity * Time.deltaTime);
 
         velocity -= new Vector3(velocity.x * friction * Time.deltaTime, velocity.y,
             velocity.z * friction * Time.deltaTime);
