@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] spawnLocations;
     public EnemyWaveSpawnMode spawnMode;
     public bool reachedEndOfWaves { get; private set; }
+
+    public float minScale = 0.8f, maxScale = 1.2f;
     
     private EnemyWave currentWave;
     private int currentWaveIndex;
@@ -59,16 +61,17 @@ public class EnemySpawner : MonoBehaviour
             }
                 
             // get spawn position based on spawnmode
+            GameObject spawned = null;
             switch (spawnMode)
             {
                 // RANDOM case
                 default:
                     int rnd = Random.Range(0, spawnLocations.Length);
-                    Instantiate(enemyToSpawn, spawnLocations[rnd].position, Quaternion.identity);
+                    spawned = Instantiate(enemyToSpawn, spawnLocations[rnd].position, Quaternion.identity);
                     break;
                     
                 case EnemyWaveSpawnMode.ROUND_ROBIN:
-                    Instantiate(enemyToSpawn, spawnLocations[roundRobinCounter].position,
+                    spawned = Instantiate(enemyToSpawn, spawnLocations[roundRobinCounter].position,
                         Quaternion.identity);
                     roundRobinCounter++;
                     roundRobinCounter %= spawnLocations.Length;
@@ -77,10 +80,12 @@ public class EnemySpawner : MonoBehaviour
                 case EnemyWaveSpawnMode.SAME_FOR_EACH:
                     for (int j = 0; j < spawnLocations.Length; j++)
                     {
-                        Instantiate(enemyToSpawn, spawnLocations[j].position, Quaternion.identity);
+                        spawned = Instantiate(enemyToSpawn, spawnLocations[j].position, Quaternion.identity);
                     }
                     break;
             }
+
+            spawned.transform.localScale *= Random.Range(minScale, maxScale);
         }
     }
     
