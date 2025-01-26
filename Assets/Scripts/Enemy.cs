@@ -26,16 +26,20 @@ public class Enemy : Agent
 	private int bubbleCount = 0;
 	private bool isInBubble = false;
 	private float lastStepTime = Mathf.NegativeInfinity;
-	private float speedMultiplier = 1;
+	[HideInInspector] public float speedMultiplier = 1;
 
 	public DestroyEnemy destroyEnemy;
 	public EnemyType enemyType;
+
+	[FormerlySerializedAs("isDustBunny")] public bool useStep;
 
 	private void Start()
 	{
 		speedMultiplier = maximumSpeedMult;
 
 		destroyEnemy = DestroyEnemy.destroyedEnemies[enemyType];
+
+		navAgent.speed = speedMultiplier;
 	}
 
 	protected override void Update()
@@ -44,7 +48,10 @@ public class Enemy : Agent
 		{
 			base.Update();
 
-			animator.SetBool("IsOnOffMeshLink", navAgent.isOnOffMeshLink);
+			if(animator)
+			{
+				animator.SetBool("IsOnOffMeshLink", navAgent.isOnOffMeshLink);
+			}
 
 			if (navAgent.isOnOffMeshLink)
 			{
@@ -53,10 +60,18 @@ public class Enemy : Agent
 			}
 			else
 			{
-				// only move forwards when making a step
-				navAgent.acceleration = 100000;
-				float normalizedStep = (Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
-				navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+				if (useStep)
+				{
+					// only move forwards when making a step
+					navAgent.acceleration = 100000;
+					float normalizedStep =
+						(Mathf.Max(0, lastStepTime + stepDecaySeconds - Time.time)) / stepDecaySeconds;
+					navAgent.speed = stepSpeedCurve.Evaluate(normalizedStep) * speedMultiplier;
+				}
+				else
+				{
+					navAgent.speed = speedMultiplier;
+				}
 			}
 		}
 	}
@@ -89,6 +104,7 @@ public class Enemy : Agent
 		if (isInBubble)
 		{
 			destroyEnemy?.ExplodeEnemy(transform);
+			ParticleManager.instance.PositionParticles(transform);
 			Destroy(gameObject);
 		}
 	}

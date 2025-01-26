@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
 
     [Header("Visuals")] 
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform model;
+    [SerializeField] private float modelRotationSpeed;
 
     private void Awake()
     {
@@ -37,13 +39,18 @@ public class Player : MonoBehaviour
         lookY = Mathf.Clamp(lookY + sensitivityY * -lookInput.y, minCameraHeight, maxCameraHeight);
         lookX = lookX + sensitivityX * lookInput.x;
         eyes.rotation = Quaternion.Euler(lookY, lookX, 0);
-        
-        // movement
-        velocity += cam.transform.forward * (moveInput.y * acceleration * Time.deltaTime);
-        velocity += cam.transform.right * (moveInput.x * acceleration * Time.deltaTime);
-        if(!controller.isGrounded) velocity += Vector3.down * (gravityAccel * Time.deltaTime);
+        if (model != null)
+        {
+            model.rotation = Quaternion.Lerp(model.rotation, Quaternion.Euler(0, lookX, 0),
+                Time.deltaTime * modelRotationSpeed);
+        }
 
-        controller.Move(velocity);
+    // movement
+        velocity += cam.transform.forward * (moveInput.y * acceleration);
+        velocity += cam.transform.right * (moveInput.x * acceleration);
+        if(!controller.isGrounded) velocity += Vector3.down * (gravityAccel);
+
+        controller.Move(velocity * Time.deltaTime);
 
         velocity -= new Vector3(velocity.x * friction * Time.deltaTime, velocity.y,
             velocity.z * friction * Time.deltaTime);
