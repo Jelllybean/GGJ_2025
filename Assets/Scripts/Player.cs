@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float sensitivityX, sensitivityY;
     [SerializeField] private float minCameraHeight, maxCameraHeight;
     private Vector2 lookInput;
-    private float lookY;
+    private float lookX, lookY;
     private Camera cam;
     
     [Header("Movement")]
@@ -34,8 +34,9 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // aiming
-        lookY = Mathf.Clamp(lookY + sensitivityY * Time.deltaTime * -lookInput.y, minCameraHeight, maxCameraHeight);
-        eyes.rotation = Quaternion.Euler(lookY, 0, 0);
+        lookY = Mathf.Clamp(lookY + sensitivityY * -lookInput.y, minCameraHeight, maxCameraHeight);
+        lookX = lookX + sensitivityX * lookInput.x;
+        eyes.rotation = Quaternion.Euler(lookY, lookX, 0);
         
         // movement
         velocity += cam.transform.forward * (moveInput.y * acceleration * Time.deltaTime);
