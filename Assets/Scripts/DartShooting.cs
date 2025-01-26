@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class DartShooting : MonoBehaviour
 {
-	private Camera camera;
+	private CinemachineCamera camera;
 	[SerializeField] private float minShootForce, maxShootForce, maxChargeTime;
 	[SerializeField] private float fovIncrease;
 
@@ -19,7 +20,7 @@ public class DartShooting : MonoBehaviour
 
 	void Start()
     {
-		camera = Camera.main;
+		camera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineCamera>();
 		for (int i = 0; i < 30; i++)
 		{
 			GameObject _obj2 = Instantiate(dartPrefab);
@@ -27,7 +28,7 @@ public class DartShooting : MonoBehaviour
 			_obj2.SetActive(false);
 		}
 
-		cameraDefaultFov = camera.fieldOfView;
+		cameraDefaultFov = camera.Lens.FieldOfView;
     }
 
     void Update()
@@ -43,7 +44,7 @@ public class DartShooting : MonoBehaviour
 		if (isChargingShot)
 		{
 			float normalizedCharge = 1 - (Mathf.Max(0,(chargeStartTime + maxChargeTime) - Time.time) / maxChargeTime);
-			camera.fieldOfView = cameraDefaultFov + fovIncrease * normalizedCharge;
+			camera.Lens.FieldOfView = cameraDefaultFov + fovIncrease * normalizedCharge;
 			
 			// shoot
 			if (Input.GetMouseButtonUp(1))
@@ -54,7 +55,7 @@ public class DartShooting : MonoBehaviour
 		}
 		else
 		{
-			camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, cameraDefaultFov, Time.deltaTime * 5);
+			camera.Lens.FieldOfView = Mathf.Lerp(camera.Lens.FieldOfView, cameraDefaultFov, Time.deltaTime * 5);
 		}
 	}
 

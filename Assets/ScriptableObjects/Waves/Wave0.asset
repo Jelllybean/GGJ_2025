@@ -16,4 +16,4 @@ MonoBehaviour:
   - prefab: {fileID: 3359167561684497078, guid: 4f8350f6980d09aad804852a88afca90, type: 3}
     weight: 100
   spawnWaveDelaySeconds: 2
-  spawnWaveAmount: 3
+  spawnWaveAmount: 18

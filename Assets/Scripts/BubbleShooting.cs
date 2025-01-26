@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+using System.Collections;
 
 public class BubbleShooting : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class BubbleShooting : MonoBehaviour
 	public bool canShoot = true;
 	public TextMeshProUGUI ammoCounter;
 	public string infinitySymbol;
+	public Slider slider;
 
 	[Header("Audio")]
 	public List<AudioSource> wooshEffects;
@@ -60,8 +63,14 @@ public class BubbleShooting : MonoBehaviour
 			if (currentAmmoCount <= 0)
 			{
 				canShoot = false;
-				Invoke("CantShoot", 1.5f);
+				StartCoroutine("Reload");
 			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			canShoot = false;
+			StartCoroutine("Reload");
 		}
 	}
 
@@ -84,6 +93,27 @@ public class BubbleShooting : MonoBehaviour
 		{
 			return previousIndex%wooshEffects.Count;
 		}
+	}
+
+	public IEnumerator Reload()
+	{
+		slider.gameObject.SetActive(true);
+		slider.value = 0;
+		float _elapsedTime = 0;
+		float _waitTime = 1.5f;
+
+		while (_elapsedTime < _waitTime)
+		{
+			slider.value = Mathf.Lerp(0, _waitTime, (_elapsedTime / _waitTime));
+			_elapsedTime += Time.deltaTime;
+			yield return null;
+		}
+		slider.value = 1.5f;
+		slider.gameObject.SetActive(false);
+		canShoot = true;
+		currentAmmoCount = 6;
+		ammoCounter.text = currentAmmoCount.ToString() + infinitySymbol;
+		yield return null;
 	}
 
 }
