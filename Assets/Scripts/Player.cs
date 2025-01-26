@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -7,13 +8,15 @@ using static UnityEngine.InputSystem.InputAction;
 public class Player : MonoBehaviour
 {
     [Header("Aiming")]
-    [SerializeField] private float sensitivity;
-    private Camera camera;
+    [SerializeField] private CinemachineThirdPersonFollow cineCamTP;
+    [SerializeField] private float sensitivityX, sensitivityY;
+    [SerializeField] private float minCameraHeight, maxCameraHeight;
+    private Vector2 lookInput;
     
     [Header("Movement")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private float acceleration, friction, gravityAccel;
-    private Vector2 inputDir;
+    private Vector2 moveInput;
     private Vector3 velocity;
 
     [Header("Visuals")] 
@@ -21,13 +24,18 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        camera = Camera.main;
     }
 
     private void Update()
     {
-        velocity += camera.transform.forward * (inputDir.y * acceleration * Time.deltaTime);
-        velocity += camera.transform.right * (inputDir.x * acceleration * Time.deltaTime);
+        // aiming
+        cineCamTP.VerticalArmLength -= lookInput.y * Time.deltaTime * sensitivityY;
+        cineCamTP.VerticalArmLength = Mathf.Clamp(cineCamTP.VerticalArmLength, minCameraHeight, maxCameraHeight);
+        transform.Rotate(0, lookInput.x * Time.deltaTime * sensitivityX, 0);
+        
+        // movement
+        velocity += cineCamTP.transform.forward * (moveInput.y * acceleration * Time.deltaTime);
+        velocity += cineCamTP.transform.right * (moveInput.x * acceleration * Time.deltaTime);
         if(!controller.isGrounded) velocity += Vector3.down * (gravityAccel * Time.deltaTime);
 
         controller.Move(velocity);
@@ -38,11 +46,11 @@ public class Player : MonoBehaviour
 
     public void Input_Move(CallbackContext input)
     {
-        inputDir = input.ReadValue<Vector2>();
+        moveInput = input.ReadValue<Vector2>();
     }
     public void Input_Aim(CallbackContext input)
     {
-        
+        lookInput = input.ReadValue<Vector2>();
     }
     public void Input_Bubble(CallbackContext input)
     {
