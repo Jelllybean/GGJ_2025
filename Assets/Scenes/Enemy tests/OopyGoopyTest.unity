@@ -606,6 +606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DestroyedEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1077916536850301453, guid: b16631339849f8b459a9319b71c936a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7780178926768449494, guid: b16631339849f8b459a9319b71c936a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.979
@@ -1463,15 +1467,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1353693854614038156, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1353693854614038156, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814184293990855973, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
+      propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868920960950845071, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4290762329834626387, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
       propertyPath: m_Name
       value: PlayerUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341860709353130995, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341860709353130995, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341860709353130995, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6697296670167256237, guid: 59bea087e3a592c42b9e3509d27bc291, type: 3}
       propertyPath: m_Pivot.x
