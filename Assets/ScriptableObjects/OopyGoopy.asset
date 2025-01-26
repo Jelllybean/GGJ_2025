@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OopyGoopy
   m_EditorClassIdentifier: 
   blackboardValues: []
-  stepTime: 0.5
+  stepTime: 0.2
   rangedDistance: 15
   playerLayerMask:
     serializedVersion: 2
