@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
 
     [Header("Visuals")] 
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform model;
+    [SerializeField] private float modelRotationSpeed;
 
     private void Awake()
     {
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
         lookY = Mathf.Clamp(lookY + sensitivityY * -lookInput.y, minCameraHeight, maxCameraHeight);
         lookX = lookX + sensitivityX * lookInput.x;
         eyes.rotation = Quaternion.Euler(lookY, lookX, 0);
+        model.rotation = Quaternion.Lerp(model.rotation, Quaternion.Euler(0, lookX, 0), Time.deltaTime * modelRotationSpeed) ;
         
         // movement
         velocity += cam.transform.forward * (moveInput.y * acceleration * Time.deltaTime);
